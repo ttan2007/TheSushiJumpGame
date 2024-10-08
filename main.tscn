@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://bcniv3wxubrtg"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_julrq"]
+[ext_resource type="PackedScene" uid="uid://dpjpg4qsglpkh" path="res://Levels/level_1.tscn" id="2_i2k05"]
+[ext_resource type="PackedScene" uid="uid://bniywqdfj3ifl" path="res://Levels/player.tscn" id="3_ng4iw"]
+[ext_resource type="Texture2D" uid="uid://xphwyuiewvme" path="res://Assets/SALMONSUSHI.png" id="4_ioxny"]
+[ext_resource type="Texture2D" uid="uid://necprsq5pehg" path="res://Assets/PINKSUSHI.png" id="5_56el0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjklx"]
+size = Vector2(995.555, 574.128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2m8u"]
+size = Vector2(1072.45, 613.227)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_julrq")
+
+[node name="2DScene" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("3_ng4iw")]
+position = Vector2(-417, 34)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3, 3)
+
+[node name="Control" type="Control" parent="Player/Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Player/Camera2D/Control"]
+modulate = Color(0.578332, 0.427662, 0, 1)
+layout_mode = 0
+offset_left = 17.1429
+offset_top = -38.5714
+offset_right = 123.143
+offset_bottom = -15.5714
+text = "Get the sushi!"
+
+[node name="Level1" parent="." instance=ExtResource("2_i2k05")]
+
+[node name="Salmonsushi" type="Sprite2D" parent="."]
+position = Vector2(357, 81)
+scale = Vector2(0.0703125, 0.083605)
+texture = ExtResource("4_ioxny")
+
+[node name="Area2D" type="Area2D" parent="Salmonsushi"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Salmonsushi/Area2D"]
+position = Vector2(42.6665, -59.805)
+shape = SubResource("RectangleShape2D_bjklx")
+
+[node name="Pinksushi" type="Sprite2D" parent="."]
+position = Vector2(2121, 29)
+scale = Vector2(0.0777555, 0.0847973)
+texture = ExtResource("5_56el0")
+
+[node name="Area2D" type="Area2D" parent="Pinksushi"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pinksushi/Area2D"]
+position = Vector2(55.373, -3.05176e-05)
+shape = SubResource("RectangleShape2D_c2m8u")
