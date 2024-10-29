@@ -1,12 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bcniv3wxubrtg"]
+[gd_scene load_steps=10 format=3 uid="uid://bcniv3wxubrtg"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_julrq"]
 [ext_resource type="PackedScene" uid="uid://dpjpg4qsglpkh" path="res://Levels/level_1.tscn" id="2_i2k05"]
 [ext_resource type="PackedScene" uid="uid://bniywqdfj3ifl" path="res://player.tscn" id="3_ng4iw"]
 [ext_resource type="Texture2D" uid="uid://xphwyuiewvme" path="res://Assets/SALMONSUSHI.png" id="4_ioxny"]
 [ext_resource type="Texture2D" uid="uid://necprsq5pehg" path="res://Assets/PINKSUSHI.png" id="5_56el0"]
-[ext_resource type="Script" path="res://area_2d.gd" id="6_ieapc"]
-[ext_resource type="PackedScene" uid="uid://cv35t4ujbm20c" path="res://shrimp.tscn" id="7_6xrhx"]
+[ext_resource type="Script" path="res://area_2d.gd" id="6_ehuc3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bjklx"]
 size = Vector2(995.555, 574.128)
@@ -14,8 +13,8 @@ size = Vector2(995.555, 574.128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2m8u"]
 size = Vector2(1072.45, 613.227)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccbnu"]
-size = Vector2(16, 34)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ykr4i"]
+radius = 9.0
 
 [node name="Main" type="Node"]
 script = ExtResource("1_julrq")
@@ -23,7 +22,7 @@ script = ExtResource("1_julrq")
 [node name="2DScene" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("3_ng4iw")]
-position = Vector2(-1212, -235)
+position = Vector2(-1480, -233)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-1.42857, -35.7143)
@@ -39,20 +38,13 @@ metadata/_edit_use_anchors_ = true
 [node name="Label" type="Label" parent="Player/Camera2D/Control"]
 modulate = Color(0.578332, 0.427662, 0, 1)
 layout_mode = 0
-offset_left = -291.429
-offset_top = -147.143
-offset_right = -150.428
-offset_bottom = -124.143
+offset_left = 11.4286
+offset_top = -28.5714
+offset_right = 152.429
+offset_bottom = -5.57144
 rotation = -0.00237117
 scale = Vector2(0.712771, 0.764861)
-text = "go grab the sushi!"
-
-[node name="Label" type="Label" parent="Player"]
-offset_left = -302.857
-offset_top = -201.429
-offset_right = -262.857
-offset_bottom = -178.429
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "go grab  the sushi!"
 
 [node name="Level1" parent="." instance=ExtResource("2_i2k05")]
 
@@ -79,23 +71,9 @@ position = Vector2(55.373, -3.05176e-05)
 shape = SubResource("RectangleShape2D_c2m8u")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(-324, -198)
-script = ExtResource("6_ieapc")
+position = Vector2(-585, -192)
+script = ExtResource("6_ehuc3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(8, 0)
-shape = SubResource("RectangleShape2D_ccbnu")
-
-[node name="collectible" parent="." instance=ExtResource("7_6xrhx")]
-position = Vector2(-1185, -268)
-
-[node name="collectible2" parent="." instance=ExtResource("7_6xrhx")]
-position = Vector2(-717, -250)
-
-[node name="collectible3" parent="." instance=ExtResource("7_6xrhx")]
-position = Vector2(-874, -293)
-
-[node name="collectible4" parent="." instance=ExtResource("7_6xrhx")]
-position = Vector2(-550, -221)
-
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+position = Vector2(-3, 2)
+shape = SubResource("CircleShape2D_ykr4i")

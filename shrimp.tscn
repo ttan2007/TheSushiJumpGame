@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv35t4ujbm20c"]
+
+[ext_resource type="Texture2D" uid="uid://bjkj48scckxuj" path="res://Assets/ShrimpChop.png" id="1_0fr05"]
+[ext_resource type="Script" path="res://shrimp.gd" id="1_w1780"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4n7b4"]
+size = Vector2(535.589, 178.941)
+
+[node name="collectible" type="Area2D"]
+script = ExtResource("1_w1780")
+
+[node name="ShrimpChop" type="Sprite2D" parent="."]
+position = Vector2(13.4053, 12.3125)
+scale = Vector2(0.0176521, 0.0175049)
+texture = ExtResource("1_0fr05")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(15.5311, 11.5)
+scale = Vector2(0.0502958, 0.0502959)
+shape = SubResource("RectangleShape2D_4n7b4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
