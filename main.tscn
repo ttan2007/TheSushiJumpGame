@@ -90,12 +90,15 @@ shape = SubResource("RectangleShape2D_ccbnu")
 position = Vector2(-1185, -268)
 
 [node name="collectible2" parent="." instance=ExtResource("7_6xrhx")]
-position = Vector2(-717, -250)
+position = Vector2(-685, -283)
 
 [node name="collectible3" parent="." instance=ExtResource("7_6xrhx")]
 position = Vector2(-874, -293)
 
 [node name="collectible4" parent="." instance=ExtResource("7_6xrhx")]
-position = Vector2(-550, -221)
+position = Vector2(-503, -221)
+
+[node name="collectible5" parent="." instance=ExtResource("7_6xrhx")]
+position = Vector2(-397, -219)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
