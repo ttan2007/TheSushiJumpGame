@@ -1,5 +1,6 @@
 res://main.tscn
 res://player.tscn
-res://Levels/level_1.tscn
-res://Levels/level_2.tscn
+res://Levels/Level1.tscn
+res://Levels/Level2.tscn
 res://shrimp.tscn
+res://tuna.tscn
